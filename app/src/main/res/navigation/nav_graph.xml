@@ -3,11 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/signupFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/signupFragment"
-        android:name="com.example.hirehub.ui.signup.SignUpFragment"
-        android:label="Sign Up">
+        android:id="@+id/homeFragment"
+        android:name="com.example.hirehub.ui.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_signInFragment"
+            app:destination="@id/signInFragment"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.hirehub.ui.signup.SignUpFragment"
+        android:label="Sign Up"/>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.hirehub.ui.signin.SignInFragment"
+        android:label="Sign In">
+        <action
+            android:id="@+id/action_signInFragment_to_mainFragment"
+            app:destination="@id/mainFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.hirehub.ui.main.MainFragment"
+        android:label="Main"/>
 </navigation>
