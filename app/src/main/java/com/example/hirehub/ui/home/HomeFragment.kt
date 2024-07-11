@@ -16,16 +16,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val chatButton: Button = root.findViewById(R.id.chat_button)
 
-        val signUpButton: Button = root.findViewById(R.id.sign_up_button)
-        val signInButton: Button = root.findViewById(R.id.sign_in_button)
-
-        signUpButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_signUpFragment)
-        }
-
-        signInButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_signInFragment)
+        chatButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_chatFragment)
         }
 
         return root
