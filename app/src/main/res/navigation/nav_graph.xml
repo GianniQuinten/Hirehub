@@ -3,60 +3,53 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/homeFragment">
-
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.hirehub.ui.home.HomeFragment"
-        android:label="Home">
-        <action
-            android:id="@+id/action_homeFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment"/>
-        <action
-            android:id="@+id/action_homeFragment_to_signInFragment"
-            app:destination="@id/signInFragment"/>
-        <action
-            android:id="@+id/action_homeFragment_to_chatFragment"
-            app:destination="@id/chatFragment"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.example.hirehub.ui.signup.SignUpFragment"
-        android:label="Sign Up"/>
-
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.example.hirehub.ui.signin.SignInFragment"
-        android:label="Sign In">
-        <action
-            android:id="@+id/action_signInFragment_to_mainFragment"
-            app:destination="@id/mainFragment"/>
-    </fragment>
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.hirehub.ui.main.MainFragment"
         android:label="Main">
         <action
-            android:id="@+id/action_mainFragment_to_homeFragment"
-            app:destination="@id/homeFragment"/>
-        <action
             android:id="@+id/action_mainFragment_to_signInFragment"
             app:destination="@id/signInFragment"/>
+        <action
+            android:id="@+id/action_mainFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.hirehub.ui.signin.SignInFragment"
+        android:label="Sign In">
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@id/homeFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.hirehub.ui.signup.SignUpFragment"
+        android:label="Sign Up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.hirehub.ui.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_chatFragment"
+            app:destination="@id/chatFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_mainFragment"
+            app:destination="@id/mainFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.hirehub.ui.chat.ChatFragment"
         android:label="Chat"
-        tools:layout="@layout/fragment_chat"/>
-
-    <!-- Define global actions for navigation -->
-    <action
-        android:id="@+id/action_global_homeFragment"
-        app:destination="@id/homeFragment" />
-    <action
-        android:id="@+id/action_global_signInFragment"
-        app:destination="@id/signInFragment" />
+        tools:layout="@layout/fragment_chat" />
 </navigation>

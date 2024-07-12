@@ -38,7 +38,7 @@ class SignInFragment : Fragment() {
             signInViewModel.signIn(email, password).observe(viewLifecycleOwner, Observer { result ->
                 if (result == "Success") {
                     Toast.makeText(context, "Sign In Successful", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_signInFragment_to_mainFragment)
+                    findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
                 } else {
                     Toast.makeText(context, "Sign In Failed: $result", Toast.LENGTH_SHORT).show()
                 }
