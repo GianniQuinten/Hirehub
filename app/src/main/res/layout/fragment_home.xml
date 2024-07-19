@@ -23,4 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Out"/>
+
+    <Button
+        android:id="@+id/view_users_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Users"/>
 </LinearLayout>

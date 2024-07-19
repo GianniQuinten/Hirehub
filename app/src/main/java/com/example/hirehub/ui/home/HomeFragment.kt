@@ -16,6 +16,7 @@ class HomeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var chatButton: Button
     private lateinit var signOutButton: Button
+    private lateinit var viewUsersButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         chatButton = root.findViewById(R.id.chat_button)
         signOutButton = root.findViewById(R.id.sign_out_button)
+        viewUsersButton = root.findViewById(R.id.view_users_button)
 
         chatButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_chatFragment)
@@ -35,6 +37,10 @@ class HomeFragment : Fragment() {
             auth.signOut()
             Toast.makeText(context, "Signed Out", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_homeFragment_to_mainFragment)
+        }
+
+        viewUsersButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_userListFragment)
         }
 
         return root

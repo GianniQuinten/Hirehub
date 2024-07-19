@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_mainFragment_to_signUpFragment"
             app:destination="@id/signUpFragment"/>
+        <action
+            android:id="@+id/action_mainFragment_to_userListFragment"
+            app:destination="@id/userListFragment"/>
     </fragment>
 
     <fragment
@@ -45,6 +48,9 @@
         <action
             android:id="@+id/action_homeFragment_to_mainFragment"
             app:destination="@id/mainFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_userListFragment"
+            app:destination="@id/userListFragment"/> <!-- Add this line -->
     </fragment>
 
     <fragment
@@ -52,4 +58,10 @@
         android:name="com.example.hirehub.ui.chat.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.example.hirehub.ui.masterview.UserListFragment"
+        android:label="User List"
+        tools:layout="@layout/fragment_user_list" />
 </navigation>
