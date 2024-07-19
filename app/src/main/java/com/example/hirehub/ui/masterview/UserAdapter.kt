@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -39,8 +40,12 @@ class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(DIFF_CALLBACK)
         private val professionTextView: TextView = itemView.findViewById(R.id.profession_text_view)
 
         fun bind(user: User) {
-            nameTextView.text = "${user.name} ${user.lastname}"
+            nameTextView.text = user.name
             professionTextView.text = user.profession
+            itemView.setOnClickListener {
+                val action = UserListFragmentDirections.actionUserListFragmentToProfileDetailFragment(user.name, user.profession)
+                itemView.findNavController().navigate(action)
+            }
         }
     }
 }
