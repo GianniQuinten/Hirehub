@@ -66,8 +66,15 @@ class SignInFragment : Fragment() {
             passwordToggle.setImageResource(R.drawable.ic_visibility_off)
         } else {
             // Show the password
-            passwordEditText.inputType = InputType.TYPE_CLASS_TEXT
+            passwordEditText.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             passwordToggle.setImageResource(R.drawable.ic_visibility)
         }
+
+        // Move cursor to the end after toggling
+        passwordEditText.setSelection(passwordEditText.text.length)
+
+        // Toggle the password visibility flag
+        isPasswordVisible = !isPasswordVisible
     }
 }
