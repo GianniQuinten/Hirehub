@@ -12,6 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.hirehub.R
+import android.text.InputType
+import android.widget.ImageView
 
 class SignInFragment : Fragment() {
 
@@ -19,6 +21,8 @@ class SignInFragment : Fragment() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signInButton: Button
+    private lateinit var passwordToggle: ImageView
+    private var isPasswordVisible: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +33,13 @@ class SignInFragment : Fragment() {
 
         emailEditText = root.findViewById(R.id.email)
         passwordEditText = root.findViewById(R.id.password)
+        passwordToggle = root.findViewById(R.id.password_toggle)
         signInButton = root.findViewById(R.id.sign_in_button)
+
+        // Handle password visibility toggle
+        passwordToggle.setOnClickListener {
+            togglePasswordVisibility()
+        }
 
         signInButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -46,5 +56,18 @@ class SignInFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            // Hide the password
+            passwordEditText.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            passwordToggle.setImageResource(R.drawable.ic_visibility_off)
+        } else {
+            // Show the password
+            passwordEditText.inputType = InputType.TYPE_CLASS_TEXT
+            passwordToggle.setImageResource(R.drawable.ic_visibility)
+        }
     }
 }
